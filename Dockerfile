@@ -16,8 +16,8 @@ RUN install2.r \
 ## Install OHDSI R packages
 RUN installGithub.r \
 	OHDSI/SqlRender \
-	OHDSI/DatabaseConnector \
-	OHDSI/Achilles \
+	myl-google/DatabaseConnector \
+	myl-google/Achilles \
 	OHDSI/Cyclops \
 	OHDSI/OhdsiRTools \
 	OHDSI/FeatureExtraction \
@@ -34,6 +34,9 @@ RUN installGithub.r \
 
 COPY Rserv.conf /etc/Rserv.conf
 COPY startRserve.R /usr/local/bin/startRserve.R
+
+RUN mkdir -p /tmp/drivers
+COPY bqjdbc.jar /tmp/drivers
 
 EXPOSE 8787
 EXPOSE 6311
