@@ -16,7 +16,7 @@ RUN install2.r \
 ## Install OHDSI R packages
 RUN installGithub.r \
 	OHDSI/SqlRender \
-	myl-google/DatabaseConnector \
+	OHDSI/DatabaseConnector \
 	myl-google/Achilles \
 	OHDSI/Cyclops \
 	OHDSI/OhdsiRTools \
@@ -31,12 +31,18 @@ RUN installGithub.r \
 	OHDSI/StudyProtocols/KeppraAngioedema \
 && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
 
-
 COPY Rserv.conf /etc/Rserv.conf
 COPY startRserve.R /usr/local/bin/startRserve.R
 
 RUN mkdir -p /tmp/drivers
 COPY bqjdbc.jar /tmp/drivers
+
+COPY bqjdbc.jar /tmp/drivers
+
+RUN mkdir -p /ohdsi-deployment
+COPY Achilles/ /ohdsi-deployment/Achilles
+COPY SqlRender/ /ohdsi-deployment/SqlRender
+COPY DatabaseConnector/ /ohdsi-deployment/DatabaseConnector
 
 EXPOSE 8787
 EXPOSE 6311
