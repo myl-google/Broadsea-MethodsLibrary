@@ -43,6 +43,7 @@ RUN mkdir -p /ohdsi-deployment
 COPY Achilles/ /ohdsi-deployment/Achilles
 COPY SqlRender/ /ohdsi-deployment/SqlRender
 COPY DatabaseConnector/ /ohdsi-deployment/DatabaseConnector
+COPY rJava /ohdsi-deployment/rJava
 
 EXPOSE 8787
 EXPOSE 6311
