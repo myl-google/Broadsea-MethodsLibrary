@@ -44,6 +44,8 @@ COPY Achilles/ /ohdsi-deployment/Achilles
 COPY SqlRender/ /ohdsi-deployment/SqlRender
 COPY DatabaseConnector/ /ohdsi-deployment/DatabaseConnector
 COPY rJava /ohdsi-deployment/rJava
+COPY LICENSE /ohdsi-deployment/Broadsea-MethodsLibrary.LICENSE
+COPY starschema.LICENSE /ohdsi-deployment/
 
 EXPOSE 8787
 EXPOSE 6311
